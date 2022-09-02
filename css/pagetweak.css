@@ -1,5 +1,9 @@
 @import "../fonts/font.css";
 
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
 :root {
   --base-color: #0A0A0A;
   --smoke-color: rgba(255,255,255,0.035);
@@ -21,10 +25,12 @@
 ::-webkit-scrollbar-thumb {
   background: var(--border-color);
   transition: .4s ease-in-out;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: white;
+  background: transparent;
 }
 
 *, html, body {
@@ -139,6 +145,7 @@ ul li {
   align-items: center;
   margin-bottom: 10px;
   cursor: pointer;
+  animation: zoomInDown 800ms linear;
   transition: .2s ease;
   padding: 15px 20px;
   background: var(--smoke-color);
@@ -156,9 +163,19 @@ ul li:last-child {
 div.action {
   width: 50px;
   height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
   cursor: pointer;
   border-radius: 210px;
+  animation: jello 800ms linear;
   background: var(--border-color);
+}
+
+div.action svg, div.action img {
+  width: 18px;
 }
 
 div.no-content {
@@ -242,6 +259,7 @@ input {
   color: white;
   border-radius: 20px;
   outline: none;
+  text-transform: capitalize;
   transition: .2s ease;
   background: var(--border-color);
 }
@@ -252,6 +270,68 @@ input:focus {
 
 .form-input {
   margin-bottom: 10px;
+}
+
+#process-con {
+  display: none;
+}
+
+#process {
+  background: #16CA37;
+}
+
+button[name="submit"] {
+  position: absolute;
+  opacity: 0;
+}
+
+.open {
+  color: #F41B11;
+  background: #F41B11 !important;
+}
+
+.open::before, .open::after {
+  content: '';
+  animation: zoomIn 200ms linear;
+  position: absolute;
+  width: 14px;
+  height: 2px;
+  transform: rotate(45deg);
+  background: white;
+}
+
+.open::after {
+  transform: rotate(-45deg);
+  animation: zoomIn 100ms linear;
+}
+
+.focus {
+  background: transparent !important;
+  overflow: visible !important;
+}
+
+.focus::before {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+  animation: spin 800ms linear infinite;
+  border: 3px solid #16CA37;
+  border-right: 3px solid transparent;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+}
+
+.focus::after {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  border: 3px solid var(--smoke-color);
+  border-radius: 100px;
 }
 
 /* Mobile */
