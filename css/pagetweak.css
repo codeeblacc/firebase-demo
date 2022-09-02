@@ -1,0 +1,262 @@
+@import "../fonts/font.css";
+
+:root {
+  --base-color: #0A0A0A;
+  --smoke-color: rgba(255,255,255,0.035);
+  --border-color: rgba(255, 255, 255, 0.05);
+  --colored: #3831FD;
+  --colored-alt: #5B56FF;
+  --animate-duration: 600ms;
+  --animate-delay: 0ms;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  transition: .4s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: white;
+}
+
+*, html, body {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  font-family: 'BaseFont';
+  font-size: 14px !important;
+}
+
+body {
+  color: white;
+  background: var(--base-color);
+  line-height: inherit;
+}
+
+header {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  position: fixed;
+  top: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+div.container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+div.content {
+  text-align: center;
+}
+
+.h1 {
+  font-size: 40px !important;
+  font-weight: 600;
+}
+
+.smoke-text {
+  color: #666666;
+}
+
+.bold-text {
+  font-weight: 600;
+}
+
+.small-text {
+  font-size: 12px !important;
+}
+
+div.box {
+  width: 360px;
+  /* background: var(--smoke-color); */
+  border-radius: 20px;
+  margin-top: 50px;
+  overflow: auto;
+  height: 270px;
+}
+
+div.box div.header {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+div.box div.content {
+  padding: 0 10px;
+}
+
+button, .button {
+  border: none;
+  height: 44px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  background: linear-gradient(45deg, var(--colored), var(--colored-alt));
+  padding: 0 20px;
+  border-radius: 100px;
+}
+
+.flex {
+  display: flex;
+}
+
+.js-space-between {
+  justify-content: space-between;
+}
+
+.al-center {
+  align-items: center;
+}
+
+.ln {
+  line-height: 22px;
+}
+
+ul {
+  list-style-type: none;
+  width: 100%;
+  text-align: left;
+}
+
+ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: .2s ease;
+  padding: 15px 20px;
+  background: var(--smoke-color);
+  border-radius: 25px;
+}
+
+ul li:hover {
+  background: rgba(255,255,255,0.045);
+}
+
+ul li:last-child {
+  margin-bottom: 0;
+}
+
+div.action {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 210px;
+  background: var(--border-color);
+}
+
+div.no-content {
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer {
+  width: 360px;
+  height: 40px;
+  border-top: 1px solid var(--border-color);
+  position: fixed;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+}
+
+.action-button {
+  position: fixed;
+  bottom: 50px;
+  width: 100%;
+  height: 100px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-box {
+  width: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-button .action {
+  background: var(--colored);
+}
+
+.form-offset {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  backdrop-filter: blur(3px);
+  background: rgba(10, 10, 10, .96);
+  top: 0;
+  position: fixed;
+  display: none;
+  z-index: 1;
+}
+
+.form-box {
+  width: 360px;
+  height: 200px;
+  position: fixed;
+  bottom: 150px;
+  backdrop-filter: blur(20px);
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 20px;
+  z-index: 2;
+  display: none;
+}
+
+.form-content {
+  padding: 0px;
+}
+
+input {
+  padding: 0 20px;
+  height: 60px;
+  border: none;
+  width: calc(100% - 40px);
+  color: white;
+  border-radius: 20px;
+  outline: none;
+  transition: .2s ease;
+  background: var(--border-color);
+}
+
+input:focus {
+  background: #202020;
+}
+
+.form-input {
+  margin-bottom: 10px;
+}
+
+/* Mobile */
+@media screen and (max-width: 680px) {
+  div.box {
+    width: 100vw;
+  }
+}
