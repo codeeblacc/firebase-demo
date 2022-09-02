@@ -1,4 +1,4 @@
-# firebase-demo
+## firebase-demo
 Implementation of Google's Firestore Databse
 
 
