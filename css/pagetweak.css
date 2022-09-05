@@ -10,7 +10,7 @@
   --border-color: rgba(255, 255, 255, 0.05);
   --colored: #3831FD;
   --colored-alt: #5B56FF;
-  --animate-duration: 600ms;
+  --animate-duration: 500ms;
   --animate-delay: 0ms;
 }
 
@@ -92,8 +92,10 @@ div.box {
   /* background: var(--smoke-color); */
   border-radius: 20px;
   margin-top: 50px;
+  position: relative;
   overflow: auto;
   height: 270px;
+  transition: .3s ease;
 }
 
 div.box div.header {
@@ -136,16 +138,17 @@ button, .button {
 ul {
   list-style-type: none;
   width: 100%;
+  transition: .4s ease;
   text-align: left;
 }
 
 ul li {
   display: flex;
+  animation: zoomInDown 800ms linear;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
   cursor: pointer;
-  animation: zoomInDown 800ms linear;
   transition: .2s ease;
   padding: 15px 20px;
   background: var(--smoke-color);
@@ -180,7 +183,8 @@ div.action svg, div.action img {
 
 div.no-content {
   height: 320px;
-  display: flex;
+  display: none;
+  animation: fadeIn 800ms linear;
   align-items: center;
   justify-content: center;
 }
@@ -310,7 +314,25 @@ button[name="submit"] {
   overflow: visible !important;
 }
 
-.focus::before {
+.preloader {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  overflow: visible;
+  cursor: pointer;
+  border-radius: 210px;
+  animation: jello 800ms linear;
+}
+
+.focus::before, .preloader::before {
   content: '';
   position: absolute;
   z-index: 2;
@@ -324,7 +346,14 @@ button[name="submit"] {
   border-bottom: 3px solid transparent;
 }
 
-.focus::after {
+.preloader::before {
+  border: 3px solid white;
+  border-right: 3px solid transparent;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+}
+
+.focus::after, .preloader::after {
   content: '';
   position: absolute;
   z-index: 2;

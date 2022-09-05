@@ -16,17 +16,16 @@
     <title>Codeeblacc</title>
   </head>
   <body>
-    <header>
-      <nav>
-        <p class="smoke-text">&infin;</p>
-      </nav>
-    </header>
     <div class="container">
       <div class="content">
-        <div class="h1">Brands</div>
+        <div class="h1">Jobs</div>
         <div class="box">
           <div class="content">
             <ul id="brand-list"></ul>
+            <div class="no-content">
+              <p class="smoke-text">No jobs were found</p>
+            </div>
+            <div class="preloader animate__animated"></div>
           </div>
         </div>
       </div>
@@ -52,13 +51,10 @@
       <div class="form-content">
         <form method="POST">
           <div class="form-input">
-            <input type="text" name="name" autocomplete="off" spellcheck="false" placeholder="Brand Name">
+            <input type="text" name="name" required autocomplete="off" spellcheck="false" placeholder="Job Name">
           </div>
           <div class="form-input">
-            <input type="text" name="owner" autocomplete="off" spellcheck="false" placeholder="Brand Owner">
-          </div>
-          <div class="form-input">
-            <input type="text" name="foundingYear" autocomplete="off" spellcheck="false" placeholder="Founding Year">
+            <input type="text" name="location" required autocomplete="off" spellcheck="false" placeholder="Location">
           </div>
           <button type="submit" name="submit" id="submit"></button>
         </form>
