@@ -143,7 +143,7 @@ db.collection('jobs').orderBy('location').onSnapshot((snapshot) => {
         let li = document.querySelector(`[data-id="${shot.doc.id}"]`);
         li.classList.remove('animate__zoomInDown');
         li.classList.add('animate__zoomOutDown');
-        setTimeout(() => brandList.removeChild(li), 500);
+        setTimeout(() => brandList.removeChild(li), 800);
       }
     });
   }
